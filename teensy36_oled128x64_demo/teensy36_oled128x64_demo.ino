@@ -27,12 +27,7 @@ const int JOY_DOWN = 23;
 #define OLED_DC     6
 #define OLED_CS     10
 #define OLED_RESET  5
-Adafruit_SSD1306 display(OLED_DC, OLED_RESET, OLED_CS);
-
-
-#if (SSD1306_LCDHEIGHT != 64)
-#error("Height incorrect, please fix Adafruit_SSD1306.h!");
-#endif
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &SPI, OLED_DC, OLED_RESET, OLED_CS);
 
 static CAN_message_t msg,rxmsg;
 volatile uint32_t count = 0;
@@ -142,6 +137,3 @@ void loop() {
      
   }
 }
-
-
-
